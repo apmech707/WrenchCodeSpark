@@ -1,0 +1,52 @@
+
+print('Enter 1 for converting pounds to kilograms.')
+print('Enter 2 for converting kilograms to pounds.')
+print('Enter 3 for converting Celsius to Fahrenheit.')
+print('Enter 4 for converting Fahrenheit to Celsius.')
+    
+
+while True:
+    print()
+    choice = input('Input choice here: ')
+    if choice.strip() == ('1', '2', '3', '4'):
+        break
+
+    if choice == '1':
+        print()
+        lbs = input('Convert lbs to kg. Enter number(lbs) here: ')
+        kg = int(lbs) / 2.2
+        rounded_kg = (round(kg))
+        print(str(rounded_kg) + ' kg')
+        print('Exact: ' + str(kg) + ' kg')
+        input('Press enter to choose another conversion. ')
+        
+    elif choice == '2':
+        print()
+        kilograms = input('Convert kg to lbs. Enter number(kg) here: ')
+        pounds = int(kilograms) * 2.2
+        rounded_pounds = (round(pounds))
+        print(str(rounded_pounds) + ' lbs')
+        print('Exact: ' + str(pounds) + ' lbs')
+        input('Press enter to choose another conversion. ')
+
+    elif choice == '3':
+        print()
+        c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here: ')
+        f_temp = (int(c_temp) * 1.8) +32
+        print(str(f_temp) + ' F')
+        input('Press enter to choose another conversion. ')
+
+    elif choice == '4':
+        print()
+        fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here: ')
+        celsius_temp = (int(fahrenheit_temp) - 32) / 1.8
+        print(str(celsius_temp) + ' C')
+        input('Press enter to choose another conversion. ')
+
+    elif choice != ('1', '2', '3', '4'):
+        print('Invalid entry.')
+        print()
+        
+
+
+   
