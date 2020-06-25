@@ -1,0 +1,123 @@
+# This is a program that converts common units for you
+log = []
+def info():
+    print('\nEnter 1 for converting pounds to kilograms.')
+    print('Enter 2 for converting kilograms to pounds.')
+    print('Enter 3 for converting Celsius to Fahrenheit.')
+    print('Enter 4 for converting Fahrenheit to Celsius.')
+
+def convert(choice):
+    if choice == '1':
+        lbs = input('Convert lbs to kg. Enter number(lbs) here:\n')
+        while lbs:
+            try:
+                value = int(lbs)
+                kg = int(lbs) / 2.2
+                rounded_kg = (round(kg))
+                log.append(f'{rounded_kg}kg')
+                print(f'\n\n{rounded_kg}kg')
+                print(f'Exact:{kg}kg')
+                
+            except ValueError:
+                try:
+                    value2 = float(lbs)
+                    kg = float(lbs) / 2.2
+                    rounded_kg = (round(kg))
+                    log.append(f'{rounded_kg}kg')
+                    print(f'\n\n{rounded_kg}kg')
+                    print(f'Exact:{kg}kg')
+                except ValueError:
+                    print('Enter a number')
+                    continue
+            break
+        
+
+    elif choice == '2':
+        kilograms = input('Convert kg to lbs. Enter number(kg) here:\n ')
+        while kilograms:
+            try:
+                value = int(kilograms)
+                pounds = int(kilograms) * 2.2
+                rounded_pounds = (round(pounds))
+                log.append(f'{rounded_pounds}(lbs)')
+                print(f'\n\n{rounded_pounds}(lbs)')
+                print(f'Exact:{pounds}lbs')
+            except ValueError:
+                try:
+                    value2 = float(kilograms)
+                    pounds = float(kilograms) * 2.2
+                    rounded_pounds = (round(pounds))
+                    log.append(f'{rounded_pounds}(lbs)')
+                    print(f'\n\n{rounded_pounds}(lbs)')
+                    print(f'Exact:{pounds}lbs')
+                except ValueError:
+                    print('Enter a number')
+            break
+        
+
+    elif choice == '3':
+        c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here:\n ')
+        while c_temp:
+            try:
+                value = int(c_temp)
+                f_temp = (int(c_temp) * 1.8) +32
+                log.append(f'{f_temp}F')
+                print(f'\n\n{f_temp}F')
+            except ValueError:
+                try:
+                    value2 = float(c_temp)
+                    f_temp = (float(c_temp) * 1.8) +32
+                    log.append(f'{f_temp}F')
+                    print(f'\n\n{f_temp}F')
+                except ValueError:
+                    print('Enter a number')
+            break
+        
+
+    elif choice == '4':
+        fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here:\n ')
+        while fahrenheit_temp:
+            try:
+                value = int(fahrenheit_temp)
+                celsius_temp = (int(fahrenheit_temp) - 32) / 1.8
+                log.append(f'{celsius_temp}C')
+                print(f'\n\n{celsius_temp}C')
+            except ValueError:
+                try:
+                    value2 = float(fahrenheit_temp)
+                    celsius_temp = (int(fahrenheit_temp) - 32) / 1.8
+                    log.append(f'{celsius_temp}C')
+                    print(f'\n\n{celsius_temp}C')
+                except ValueError:
+                    print('Enter a number')
+            break
+while True:
+    info() # This calls the function that lists the options
+    choices_allowed = ('1', '2', '3', '4')
+    c = input('Enter your choice of conversion\n')
+    print(f'\nYou entered:{c}')
+    if c.lower() == 'exit':
+        break
+    if c.lower() == 'info':
+        continue
+    if c.lower() == 'log':
+        print('\n\n')
+        for  i in log:
+            print(i)
+            continue
+    
+    elif c:
+        try:
+            value = int(c)     # This tests the user input to see if it is a number
+        except ValueError:          # if python gets a value error, it prints the message and continues to the next iteration of the while loop
+            print('\nEnter a number to choose which conversion to do\n')
+            continue
+        if c in choices_allowed:
+            convert(c) # This calls the function from the top of the code that does the converting
+            continue
+        if c not in choices_allowed:
+            print('\nNot a valid entery - type info for help')
+            continue
+
+
+            
