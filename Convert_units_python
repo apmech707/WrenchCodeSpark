@@ -1,0 +1,192 @@
+# This is a program that converts common units for you
+log = []
+def info():
+    print('\nEnter 1 for converting Pounds to kilograms.')
+    print('Enter 2 for converting kilograms to pounds.')
+    print('Enter 3 for converting Celsius to Fahrenheit.')
+    print('Enter 4 for converting Fahrenheit to Celsius.')
+    print('Enter 5 for converting Miles to Kilometers.')
+    print('Enter 6 for converting Kilometers to Miles.')
+
+info()
+
+def convert(choice):
+    if choice == '1':
+        lbs = input('Convert lbs to kg. Enter number(lbs) here:\n')
+        while lbs:
+            try:
+                lbs = int(lbs)
+                kg = lbs / 2.2
+                rounded_kg = (round(kg))
+                log.append(f'{lbs}(lbs) = {kg}kg')
+                print(f'\n\n{rounded_kg}kg')
+                print(f'Exact: {kg}kg')
+                
+            except ValueError:
+                try:
+                    lbs = float(lbs)
+                    kg = lbs / 2.2
+                    rounded_kg = (round(kg))
+                    log.append(f'{lbs}(lbs) = {kg}kg')
+                    print(f'\n\n{rounded_kg}kg')
+                    print(f'Exact: {kg}kg')
+                except ValueError:
+                    print('Enter a number')
+                    lbs = input('Convert lbs to kg. Enter number(lbs) here:\n')
+                    continue
+            break
+        
+
+    elif choice == '2':
+        kilograms = input('Convert kg to lbs. Enter number(kg) here:\n ')
+        while kilograms:
+            try:
+                kilograms = int(kilograms)
+                pounds = kilograms * 2.2
+                rounded_pounds = (round(pounds))
+                log.append(f'{kilograms}kg = {pounds}(lbs)')
+                print(f'\n\n{rounded_pounds}(lbs)')
+                print(f'Exact: {pounds}lbs')
+            except ValueError:
+                try:
+                    kilograms = float(kilograms)
+                    pounds = kilograms * 2.2
+                    rounded_pounds = (round(pounds))
+                    log.append(f'{kilograms}kg = {pounds}(lbs)')
+                    print(f'\n\n{rounded_pounds}(lbs)')
+                    print(f'Exact: {pounds}lbs')
+                except ValueError:
+                    print('Enter a number')
+                    kilograms = input('Convert kg to lbs. Enter number(kg) here:\n ')
+                    continue
+            break
+        
+
+    elif choice == '3':
+        c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here:\n ')
+        while c_temp:
+            try:
+                c_temp = int(c_temp)
+                f_temp = (c_temp * 1.8) +32
+                rounded_f_temp = (round(f_temp))
+                log.append(f'{c_temp}C = {f_temp}F')
+                print(f'\n\n{rounded_f_temp}F')
+                print(f'Exact: {f_temp}F')
+            except ValueError:
+                try:
+                    c_temp = float(c_temp)
+                    f_temp = (c_temp * 1.8) +32
+                    rounded_f_temp = (round(f_temp))
+                    log.append(f'{c_temp}C = {f_temp}F')
+                    print(f'\n\n{rounded_f_temp}F')
+                    print(f'Exact: {f_temp}F')
+                except ValueError:
+                    print('Enter a number')
+                    c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here:\n ')
+                    continue
+            break
+        
+
+    elif choice == '4':
+        fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here:\n ')
+        while fahrenheit_temp:
+            try:
+                fahrenheit_temp = int(fahrenheit_temp)
+                celsius_temp = (fahrenheit_temp - 32) / 1.8
+                rounded_ct = round(celsius_temp)
+                log.append(f'{fahrenheit_temp}F = {celsius_temp}C')
+                print(f'\n\n{rounded_ct}C')
+                print(f'Exact: {celsius_temp}C')
+            except ValueError:
+                try:
+                    fahrenheit_temp = float(fahrenheit_temp)
+                    celsius_temp = (fahrenheit_temp - 32) / 1.8
+                    rounded_ct = round(celsius_temp)
+                    log.append(f'{fahrenheit_temp}F = {celsius_temp}C')
+                    print(f'\n\n{rounded_ct}C')
+                    print(f'Exact: {celsius_temp}C')
+                except ValueError:
+                    print('Enter a number')
+                    fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here:\n ')
+                    continue
+            break
+    
+    elif choice == '5':
+        miles = input('Convert Miles to Kilometers. Enter number of miles here:\n')
+        while miles:
+            try:
+                miles = int(miles)
+                kilometers = (miles * 1.609344)
+                rounded_kilometers = round(kilometers)
+                log.append(f'{miles} Miles = {kilometers} Kilometers')
+                print(f'\n\n{rounded_kilometers} Kilometers')
+                print(f'Exact: {kilometers} Kilometers')
+            except ValueError:
+                try:
+                    miles = float(miles)
+                    kilometers = (miles * 1.609344)
+                    rounded_kilometers = round(kilometers)
+                    log.append(f'{miles} Miles = {kilometers} Kilometers')
+                    print(f'\n\n{rounded_kilometers} Kilometers')
+                    print(f'Exact: {kilometers} Kilometers')
+                except ValueError:
+                    print('Enter a number')
+                    miles = input('Convert Miles to Kilometers. Enter number of miles here:\n')
+                    continue
+            break
+
+    elif choice == '6':
+        km = input('Convert Kilometers to Miles. Enter number of Kilometers here:\n')
+        while km:
+            try:
+                km = int(km)
+                m = km * 0.6213712
+                rounded_m = round(m)
+                log.append(f'{km} Kilometers = {m} Miles')
+                print(f'\n\n{rounded_m} Miles')
+                print(f'Exact: {m} Miles')
+            except ValueError:
+                try:
+                    km = float(km)
+                    m = km * 0.6213712
+                    rounded_m = round(m)
+                    log.append(f'{km} Kilometers = {m} Miles')
+                    print(f'\n\n{rounded_m} Miles')
+                    print(f'Exact: {m} Miles')
+                except ValueError:
+                    print('Enter a number')
+                    km = input('Convert Kilometers to Miles. Enter number of Kilometers here:\n')
+                    continue
+            break
+
+
+
+while True:
+    choices_allowed = ('1','2','3','4','5','6')
+    c = input('Enter your choice of conversion\n')
+    print(f'\nYou entered:{c}')
+    
+    if c.lower() == 'exit':
+        break
+    if c.lower() == 'info':
+        info() # This calls the function that lists the options
+        continue
+    if c.lower() == 'log':
+        print('\n\n')
+        for  i in log:
+            print(i)
+            continue
+    
+    elif c:
+        try:
+            value = int(c)     # This tests the user input to see if it is a number
+        except ValueError:     # if python gets a value error, it prints the message and continues to the next iteration of the while loop
+            print('\nNot a valid entery - type info for help')
+            continue
+        if c in choices_allowed:
+            convert(c)         # This calls the function from the top of the code that does the converting
+            continue
+        if c not in choices_allowed:
+            print('\nNot a valid entery - type info for help')
+            continue
+
