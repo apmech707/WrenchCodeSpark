@@ -1,25 +1,30 @@
 # This is a program that converts common units for you
 log = []
 
-def choice_error()
-    print('Not a valid entry - type info for help')
+def value_error():
+    print('Enter only numbers. No other characters.')
 
-def val_error()
-    print('Enter a number only. No other characters')
+def choice_error():
+    print('Not a valid entry - type help to see the list of options again.')
 
-def info():
+    
+def help():
     print('\nEnter 1 for converting Pounds to kilograms.')
     print('Enter 2 for converting Kilograms to Pounds.')
     print('Enter 3 for converting Celsius to Fahrenheit.')
     print('Enter 4 for converting Fahrenheit to Celsius.')
     print('Enter 5 for converting Miles to Kilometers.')
     print('Enter 6 for converting Kilometers to Miles.')
+    print('Enter log to view a list of your recent conversions')
+    print('Enter exit to close the program')
 
-info()
+
 
 def convert(choice):
     if choice == '1':
         lbs = input('Convert lbs to kg. Enter number(lbs) here: ')
+        if lbs.lower().strip() == 'exit':
+            exit()
         while lbs:
             try:
                 lbs = int(lbs)
@@ -38,7 +43,7 @@ def convert(choice):
                     print(f'\n\n{rounded_kg}kg')
                     print(f'Exact: {kg}kg')
                 except ValueError:
-                    print('Enter a number only')
+                    value_error()
                     lbs = input('Convert lbs to kg. Enter number(lbs) here: ')
                     continue
             break
@@ -46,6 +51,8 @@ def convert(choice):
 
     elif choice == '2':
         kilograms = input('Convert kg to lbs. Enter number(kg) here: ')
+        if kilograms.lower().strip() == 'exit':
+            exit()
         while kilograms:
             try:
                 kilograms = int(kilograms)
@@ -63,7 +70,7 @@ def convert(choice):
                     print(f'\n\n{rounded_pounds}(lbs)')
                     print(f'Exact: {pounds}lbs')
                 except ValueError:
-                    print('Enter a number only')
+                    value_error()
                     kilograms = input('Convert kg to lbs. Enter number(kg) here: ')
                     continue
             break
@@ -71,6 +78,8 @@ def convert(choice):
 
     elif choice == '3':
         c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here: ')
+        if c_temp.lower().strip() == 'exit':
+            exit()
         while c_temp:
             try:
                 c_temp = int(c_temp)
@@ -88,7 +97,7 @@ def convert(choice):
                     print(f'\n\n{rounded_f_temp}F')
                     print(f'Exact: {f_temp}F')
                 except ValueError:
-                    print('Enter a number only')
+                    value_error()
                     c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here: ')
                     continue
             break
@@ -96,6 +105,8 @@ def convert(choice):
 
     elif choice == '4':
         fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here: ')
+        if fahrenheit_temp.lower().strip() == 'exit':
+            exit()
         while fahrenheit_temp:
             try:
                 fahrenheit_temp = int(fahrenheit_temp)
@@ -113,13 +124,15 @@ def convert(choice):
                     print(f'\n\n{rounded_ct}C')
                     print(f'Exact: {celsius_temp}C')
                 except ValueError:
-                    print('Enter a number')
+                    value_error()
                     fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here: ')
                     continue
             break
     
     elif choice == '5':
         miles = input('Convert Miles to Kilometers. Enter number of miles here: ')
+        if miles.lower().strip() == 'exit':
+            exit()
         while miles:
             try:
                 miles = int(miles)
@@ -137,13 +150,15 @@ def convert(choice):
                     print(f'\n\n{rounded_kilometers} Kilometers')
                     print(f'Exact: {kilometers} Kilometers')
                 except ValueError:
-                    print('Enter a number')
+                    value_error()
                     miles = input('Convert Miles to Kilometers. Enter number of miles here: ')
                     continue
             break
 
     elif choice == '6':
         km = input('Convert Kilometers to Miles. Enter number of Kilometers here: ')
+        if km.lower().strip() == 'exit':
+            exit()
         while km:
             try:
                 km = int(km)
@@ -166,19 +181,20 @@ def convert(choice):
                     continue
             break
 
-
+help()
 
 while True:
     choices_allowed = ('1','2','3','4','5','6')
-    c = input('Enter your choice of conversion: ')
+    c = input('Enter your choice of conversion:\n')
     print(f'\nYou entered: {c}')
+
     
-    if c.lower() == 'exit':
+    if c.lower().strip() == 'exit':
         break
-    if c.lower() == 'info':
-        info() # This calls the function that lists the options
+    if c.lower().strip() == 'help':
+        help() # This calls the function that lists the options
         continue
-    if c.lower() == 'log':
+    if c.lower().strip() == 'log':
         print('\n\n')
         for  i in log:
             print(i)
@@ -188,12 +204,13 @@ while True:
         try:
             value = int(c)     # This tests the user input to see if it is a number
         except ValueError:     # if python gets a value error, it prints the message and continues to the next iteration of the while loop
-            print('\nNot a valid entery - type info for help')
+            choice_error()
             continue
-        if c in choices_allowed:
-            convert(c)         # This calls the function from the top of the code that does the converting
+        
+        if str(c.strip()) in choices_allowed:
+            convert(c.strip())         # This calls the function from the top of the code that does the converting
             continue
-        if c not in choices_allowed:
-            print('\nNot a valid entery - type info for help')
+        if str(c.strip()) not in choices_allowed:
+            choice_error()
             continue
 
