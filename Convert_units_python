@@ -7,7 +7,6 @@ def value_error():
 def choice_error():
     print('Not a valid entry - type help to see the list of options again.')
 
-    
 def help():
     print('\nEnter 1 for converting Pounds to kilograms.')
     print('Enter 2 for converting Kilograms to Pounds.')
@@ -18,169 +17,120 @@ def help():
     print('Enter log to view a list of your recent conversions')
     print('Enter exit to close the program')
 
-
-
 def convert(choice):
     if choice == '1':
         lbs = input('Convert lbs to kg. Enter number(lbs) here: ')
         if lbs.lower().strip() == 'exit':
-            exit()
-        while lbs:
+            quit()
+        while lbs != 'exit':
             try:
-                lbs = int(lbs)
+                lbs = float(lbs) # this tests if user input is a base 10 number
+            except ValueError:
+                value_error()   #this calls the value_error() I created above
+                lbs = input('Convert lbs to kg. Enter number(lbs) here: ')
+                continue
+            else:
                 kg = lbs / 2.2
                 rounded_kg = (round(kg))
                 log.append(f'{lbs}(lbs) = {kg}kg')
                 print(f'\n\n{rounded_kg}kg')
                 print(f'Exact: {kg}kg')
-                
-            except ValueError:
-                try:
-                    lbs = float(lbs)
-                    kg = lbs / 2.2
-                    rounded_kg = (round(kg))
-                    log.append(f'{lbs}(lbs) = {kg}kg')
-                    print(f'\n\n{rounded_kg}kg')
-                    print(f'Exact: {kg}kg')
-                except ValueError:
-                    value_error()
-                    lbs = input('Convert lbs to kg. Enter number(lbs) here: ')
-                    continue
-            break
+            break    # this breaks out of the while loop and, as a result finishes the convert() function. 
         
-
     elif choice == '2':
         kilograms = input('Convert kg to lbs. Enter number(kg) here: ')
         if kilograms.lower().strip() == 'exit':
-            exit()
-        while kilograms:
+            quit()
+        while kilograms != 'exit':
             try:
-                kilograms = int(kilograms)
+                kilograms = float(kilograms)
+            except ValueError:
+                value_error()
+                kilograms = input('Convert kg to lbs. Enter number(kg) here: ')
+                continue
+            else:
                 pounds = kilograms * 2.2
                 rounded_pounds = (round(pounds))
                 log.append(f'{kilograms}kg = {pounds}(lbs)')
                 print(f'\n\n{rounded_pounds}(lbs)')
                 print(f'Exact: {pounds}lbs')
-            except ValueError:
-                try:
-                    kilograms = float(kilograms)
-                    pounds = kilograms * 2.2
-                    rounded_pounds = (round(pounds))
-                    log.append(f'{kilograms}kg = {pounds}(lbs)')
-                    print(f'\n\n{rounded_pounds}(lbs)')
-                    print(f'Exact: {pounds}lbs')
-                except ValueError:
-                    value_error()
-                    kilograms = input('Convert kg to lbs. Enter number(kg) here: ')
-                    continue
             break
         
-
     elif choice == '3':
         c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here: ')
         if c_temp.lower().strip() == 'exit':
-            exit()
-        while c_temp:
+            quit()
+        while c_temp != 'exit':
             try:
-                c_temp = int(c_temp)
+                c_temp = float(c_temp)
+            except ValueError:
+                value_error()
+                c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here: ')
+                continue
+            else:
                 f_temp = (c_temp * 1.8) +32
                 rounded_f_temp = (round(f_temp))
                 log.append(f'{c_temp}C = {f_temp}F')
                 print(f'\n\n{rounded_f_temp}F')
                 print(f'Exact: {f_temp}F')
-            except ValueError:
-                try:
-                    c_temp = float(c_temp)
-                    f_temp = (c_temp * 1.8) +32
-                    rounded_f_temp = (round(f_temp))
-                    log.append(f'{c_temp}C = {f_temp}F')
-                    print(f'\n\n{rounded_f_temp}F')
-                    print(f'Exact: {f_temp}F')
-                except ValueError:
-                    value_error()
-                    c_temp = input('Convert Celsius to Fahrenheit. Enter number(temp.) in Celsius here: ')
-                    continue
             break
         
-
     elif choice == '4':
         fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here: ')
         if fahrenheit_temp.lower().strip() == 'exit':
-            exit()
-        while fahrenheit_temp:
+            quit()
+        while fahrenheit_temp != 'exit':
             try:
-                fahrenheit_temp = int(fahrenheit_temp)
+                fahrenheit_temp = float(fahrenheit_temp)
+            except ValueError:
+                value_error()
+                fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here: ')
+                continue
+            else:
                 celsius_temp = (fahrenheit_temp - 32) / 1.8
                 rounded_ct = round(celsius_temp)
                 log.append(f'{fahrenheit_temp}F = {celsius_temp}C')
                 print(f'\n\n{rounded_ct}C')
                 print(f'Exact: {celsius_temp}C')
-            except ValueError:
-                try:
-                    fahrenheit_temp = float(fahrenheit_temp)
-                    celsius_temp = (fahrenheit_temp - 32) / 1.8
-                    rounded_ct = round(celsius_temp)
-                    log.append(f'{fahrenheit_temp}F = {celsius_temp}C')
-                    print(f'\n\n{rounded_ct}C')
-                    print(f'Exact: {celsius_temp}C')
-                except ValueError:
-                    value_error()
-                    fahrenheit_temp = input('Convert Fahrenheit to Celsius. Enter number(temp.) in Fahrenheit here: ')
-                    continue
             break
     
     elif choice == '5':
         miles = input('Convert Miles to Kilometers. Enter number of miles here: ')
         if miles.lower().strip() == 'exit':
-            exit()
-        while miles:
+            quit()
+        while miles != 'exit':
             try:
-                miles = int(miles)
+                miles = float(miles)
+            except ValueError:
+                value_error()
+                miles = input('Convert Miles to Kilometers. Enter number of miles here: ')
+                continue
+            else:
                 kilometers = (miles * 1.609344)
                 rounded_kilometers = round(kilometers)
                 log.append(f'{miles} Miles = {kilometers} Kilometers')
                 print(f'\n\n{rounded_kilometers} Kilometers')
                 print(f'Exact: {kilometers} Kilometers')
-            except ValueError:
-                try:
-                    miles = float(miles)
-                    kilometers = (miles * 1.609344)
-                    rounded_kilometers = round(kilometers)
-                    log.append(f'{miles} Miles = {kilometers} Kilometers')
-                    print(f'\n\n{rounded_kilometers} Kilometers')
-                    print(f'Exact: {kilometers} Kilometers')
-                except ValueError:
-                    value_error()
-                    miles = input('Convert Miles to Kilometers. Enter number of miles here: ')
-                    continue
             break
 
     elif choice == '6':
         km = input('Convert Kilometers to Miles. Enter number of Kilometers here: ')
         if km.lower().strip() == 'exit':
-            exit()
-        while km:
+            quit()
+        while km != 'exit':
             try:
-                km = int(km)
+                km = float(km)
+            except ValueError:
+                value_error()
+                km = input('Convert Kilometers to Miles. Enter number of Kilometers here: ')
+                continue
+            else:
                 m = km * 0.6213712
                 rounded_m = round(m)
                 log.append(f'{km} Kilometers = {m} Miles')
                 print(f'\n\n{rounded_m} Miles')
                 print(f'Exact: {m} Miles')
-            except ValueError:
-                try:
-                    km = float(km)
-                    m = km * 0.6213712
-                    rounded_m = round(m)
-                    log.append(f'{km} Kilometers = {m} Miles')
-                    print(f'\n\n{rounded_m} Miles')
-                    print(f'Exact: {m} Miles')
-                except ValueError:
-                    print('Enter a number')
-                    km = input('Convert Kilometers to Miles. Enter number of Kilometers here: ')
-                    continue
             break
-
 help()
 
 while True:
@@ -188,9 +138,8 @@ while True:
     c = input('Enter your choice of conversion:\n')
     print(f'\nYou entered: {c}')
 
-    
     if c.lower().strip() == 'exit':
-        break
+        quit()
     if c.lower().strip() == 'help':
         help() # This calls the function that lists the options
         continue
@@ -199,18 +148,12 @@ while True:
         for  i in log:
             print(i)
             continue
-    
     elif c:
-        try:
-            value = int(c)     # This tests the user input to see if it is a number
-        except ValueError:     # if python gets a value error, it prints the message and continues to the next iteration of the while loop
+        if str(c.strip()) in choices_allowed:
+            convert(c.strip())         
+            continue
+        else:
             choice_error()
             continue
         
-        if str(c.strip()) in choices_allowed:
-            convert(c.strip())         # This calls the function from the top of the code that does the converting
-            continue
-        if str(c.strip()) not in choices_allowed:
-            choice_error()
-            continue
 
