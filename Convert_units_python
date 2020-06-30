@@ -1,14 +1,11 @@
 # This is a program that converts common units for you
 log = ['']
 
-
 def value_error():
     print('Enter only numbers. No other characters.')
 
-
 def choice_error():
     print('Not a valid entry - type help to see the list of options again.')
-
 
 def info():
     print('\nEnter 1 for converting Pounds to kilograms.')
@@ -19,7 +16,6 @@ def info():
     print('Enter 6 for converting Kilometers to Miles.')
     print('Enter log to view a list of your recent conversions')
     print('Enter exit to close the program')
-
 
 def convert(choice):
     if choice == '1':
@@ -129,7 +125,6 @@ def convert(choice):
                 km = input('Convert Kilometers to Miles. Enter number of Kilometers here: ')
                 continue
             break
-
 
 info()
 
