@@ -5,11 +5,11 @@ the program will read and write your log to.This program runs in the console and
 
 from convert_dependancies import value_error, choice_error, info, change_pass, set_pass, convert 
 
-info() 
-set_pass()
+info() # This will display the list of option at the start of the program
+set_pass() # This will check to see if it's the first time running the program and prompt to set a password if it is
 
 
-while True:
+while True: # this is the main while loop of the code
     
     choices_allowed = ('1', '2', '3', '4', '5', '6')
     c = input("Enter your choice of conversion:")
@@ -24,10 +24,10 @@ while True:
         with open('logged_files.txt', 'r') as f:
             for line in f:
                 for i in  line.split(","):
-                    print(i)
+                    print(i) # prints out your log from the logged_files.txt
     
     elif c.lower().strip() == 'reset':
-        change_pass()
+        change_pass() # calls the function imported from the dependencies to change password
 
     elif c.lower().strip() == 'clearlog':
         flag = True
