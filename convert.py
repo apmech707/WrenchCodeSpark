@@ -3,7 +3,7 @@ repository in one directory so that they can import correctly. Create a blank .t
 and put it in the same directory. Name this file, logged_files.txt. This is the file that
 the program will read and write your log to.This program runs in the console and has no GUI. Have fun '''
 
-from convert_dependancies import value_error, choice_error, info, change_pass, set_pass, convert 
+from convert_dependencies import value_error, choice_error, info, change_pass, set_pass, convert 
 
 info() # This will display the list of option at the start of the program
 set_pass() # This will check to see if it's the first time running the program and prompt to set a password if it is
