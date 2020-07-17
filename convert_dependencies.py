@@ -57,9 +57,9 @@ def convert(choice):
                 continue
             lbs = float(lbs)  
             kg = lbs / 2.2
-            rounded_kg = (round(kg)) # this will write your entry to the .txt file in your dir
+            rounded_kg = (round(kg)) 
             with open('logged_files.txt', 'a') as file:
-                file.write(f'{lbs} (lbs) = {kg} kg,')
+                file.write(f'{lbs} (lbs) = {kg} kg,')# this will write your entry to the .txt file in your dir
             print(f'\n\n{rounded_kg}kg')
             print(f'Exact: {kg}kg')
             break  # this breaks out of the while loop and, as a result finishes the convert() function.
