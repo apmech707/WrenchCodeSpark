@@ -31,7 +31,7 @@ while True: # this is the main while loop of the code
 
     elif c.lower().strip() == 'clearlog':
         flag = True
-        while flag:
+		while flag:
             with open('new_program_flag.txt', 'r') as new_flag_file:
                 password = new_flag_file.read()
             check = input("Enter your password!! Filthy Human!:\n")
@@ -54,11 +54,13 @@ while True: # this is the main while loop of the code
                         flag2 = False
                     elif admin.lower().strip() != a and admin.lower().strip() != b:
                         continue
+                     
             elif check != password:
                 print("NONSENSE!! HAVE YOU THE BRAIN WORMS?!!")
                 continue
             elif check == 'exit':
                 flag = False
+		del(password, check, flag, flag2, admin, a, b)                
     
     elif c:
         if str(c.strip()) in choices_allowed:
