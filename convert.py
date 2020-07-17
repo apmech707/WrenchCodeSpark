@@ -5,11 +5,11 @@ the program will read and write your log to.This program runs in the console and
 
 from convert_dependencies import value_error, choice_error, info, change_pass, set_pass, convert 
 
-info() # This will display the list of option at the start of the program
-set_pass() # This will check to see if it's the first time running the program and prompt to set a password if it is
+info() 
+set_pass()
 
 
-while True: # this is the main while loop of the code
+while True:
     
     choices_allowed = ('1', '2', '3', '4', '5', '6')
     c = input("Enter your choice of conversion:")
@@ -24,14 +24,14 @@ while True: # this is the main while loop of the code
         with open('logged_files.txt', 'r') as f:
             for line in f:
                 for i in  line.split(","):
-                    print(i) # prints out your log from the logged_files.txt
+                    print(i)
     
     elif c.lower().strip() == 'reset':
-        change_pass() # calls the function imported from the dependencies to change password
+        change_pass()
 
     elif c.lower().strip() == 'clearlog':
         flag = True
-		while flag:
+        while flag:
             with open('new_program_flag.txt', 'r') as new_flag_file:
                 password = new_flag_file.read()
             check = input("Enter your password!! Filthy Human!:\n")
@@ -54,14 +54,12 @@ while True: # this is the main while loop of the code
                         flag2 = False
                     elif admin.lower().strip() != a and admin.lower().strip() != b:
                         continue
-                     
             elif check != password:
                 print("NONSENSE!! HAVE YOU THE BRAIN WORMS?!!")
                 continue
             elif check == 'exit':
                 flag = False
-		del(password, check, flag, flag2, admin, a, b)                
-    
+        del(password, check, flag, flag2, admin, a, b)
     elif c:
         if str(c.strip()) in choices_allowed:
             if len(str(c.strip())) == 1:
