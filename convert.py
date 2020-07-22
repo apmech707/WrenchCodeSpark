@@ -1,10 +1,9 @@
-''' This is a program that converts common units for you. Put all the files in the 
-repository in one directory so that they can import correctly. Create a blank .txt file
-and put it in the same directory. Name this file, logged_files.txt. This is the file that
-the program will read and write your log to.This program runs in the console and has no GUI. Have fun '''
+''' This is a program that converts common units for you.
+This program runs in the console and has no GUI. Have fun!'''
 
-from convert_dependencies import value_error, choice_error, info, change_pass, set_pass, convert 
+from convert_dependencies import *
 
+check_logged_file()
 info() 
 set_pass()
 
@@ -68,5 +67,3 @@ while True:
         elif str(c.strip()) not in choices_allowed or len(str(c.strip())) > 1:
             choice_error()
             continue
-
-
