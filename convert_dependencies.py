@@ -19,6 +19,14 @@ def info():
     print('Enter reset to change your password')
     print('Enter exit at any time to exit')
 
+def check_logged_file():
+    try:
+        with open('logged_files.txt') as f:
+            pass
+    except FileNotFoundError:
+        with open('logged_files.txt', 'w') as f:
+            pass
+
 def change_pass():
 
     while True:
