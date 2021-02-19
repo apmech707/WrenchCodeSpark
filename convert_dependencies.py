@@ -46,6 +46,7 @@ def set_pass():
     try:
         with open('new_program_flag.txt', 'r') as new_flag_file:
             contents = new_flag_file.read()
+            del contents
     except FileNotFoundError:
         with open('new_program_flag.txt', 'w+') as new_flag_file:
             x = input("Welcome developer. Enter a password to manage log:\n")
