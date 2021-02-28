@@ -47,6 +47,8 @@ def guessing_game(answer):
             print("You guessed it!")
             if count > 0:
                 print(f"Congrats! You completed with {count} hints left over!")
+                # f strings are a way to enter in a variable into a string and what prints will be the value of the variable.
+                # The vairable has to be in those curly braces.
             elif count == 0:
                 pass
             break
