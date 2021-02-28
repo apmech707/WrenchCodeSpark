@@ -64,7 +64,7 @@ while True:
     
     elif flaggy:
         print("Would you like to play again?\n Type yes or no")
-        pass
+        
     
     wouldya = input()
 
