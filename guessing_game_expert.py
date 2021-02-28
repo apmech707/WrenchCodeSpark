@@ -28,7 +28,7 @@ def guessing_game(answer):
             flag = True
         elif flag: 
             # When you say "if" then some variable name, the condition you are testing is Boolean(True or False)
-            # Asking " if flag", is asking if its True. You don't have to specify "== True" if you don't want to
+            # Asking "elif flag", is asking if its True. You don't have to specify "== True" if you don't want to
             pass
 
         guess = input("\n")
